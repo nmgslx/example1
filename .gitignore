@@ -1,0 +1,16 @@
+# eclipse project file
+.settings/
+.classpath
+.project
+
+# Maven
+target/
+
+# TestNG
+test-output/
+
+# Misc
+*.swp
+release.properties
+pom.xml.releaseBackup
+pom.xml.tag
