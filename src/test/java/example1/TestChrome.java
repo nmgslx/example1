@@ -10,6 +10,7 @@ public class TestChrome extends TestCases {
   public void beforeClass() {
 	  ClassLoader classLoader = getClass().getClassLoader();
 	  String path  = classLoader.getResource("chromedriver-v2.31-win32").getPath();
+	  System.out.println(path);
 	  System.setProperty("webdriver.chrome.driver", path+"/chromedriver.exe");
 	  driver = new ChromeDriver();
   }
