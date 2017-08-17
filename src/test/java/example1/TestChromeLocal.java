@@ -4,7 +4,7 @@ import org.testng.annotations.BeforeClass;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 
-public class TestChrome extends TestCases {
+public class TestChromeLocal extends TestCases {
   
   @BeforeClass
   public void beforeClass() {

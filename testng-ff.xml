@@ -3,7 +3,7 @@
 <suite name="Web Driver Suite">
   <test name="Test">
     <classes>
-      <class name="example1.TestFirefox"/>
+      <class name="example1.TestFirefoxRemote"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Web Driver Suite -->
