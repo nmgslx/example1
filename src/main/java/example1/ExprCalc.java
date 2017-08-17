@@ -166,6 +166,20 @@ public class ExprCalc {
 				if (list.size() == 1) return list.get(0);
 				return expr;
 			}
+
+			if (stack.size()==1 && list.size()==0) {
+				return expr;
+			}
+			
+			if (stack.size()==1 && list.size()==1) {	// operator with only one operand
+				String opr = (String)stack.pop();
+				Object op1 = list.get(0);
+				if (opr.equals("+") && (op1 instanceof Integer || op1 instanceof Double)) return op1;
+				if (opr.equals("-") && op1 instanceof Integer) return (int)op1*-1;
+				if (opr.equals("-") && op1 instanceof Double) return (double)op1*-1;
+				if (opr.equals("NOT") && op1 instanceof Double) return !((boolean)op1);
+				return expr;
+			}
 			
 			while (!stack.empty()) {
 				String tmp = (String)stack.pop();
@@ -174,6 +188,7 @@ public class ExprCalc {
 
 			/////////////////////////////////////////////////////////////////////////////
 			//System.out.println(list);
+			/////////////////////////////////////////////////////////////////////////////
 
 			for (i = 0; i < list.size(); i++) {
 				Object item = list.get(i);

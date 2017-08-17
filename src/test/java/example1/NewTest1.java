@@ -23,18 +23,9 @@ public class NewTest1 {
 	Assert.assertSame(expc.result("ABC").getClass(), String.class, "ABC");
 	Assert.assertSame(expc.result("1.2").getClass(), Double.class, "1.2");
 	Assert.assertSame(expc.result("100 ").getClass(), Integer.class, "100 ");
-	
-			//System.out.println(new MathCalculation("(2 +2*5/11.0-6.0/3 > 1) OR (3>2) AND \"ABC 11\"==\"ABC 11\"").result());
-			//System.out.println(new MathCalculation("(1+(3-(5.0+2))*(4-2)/2)").result());
-			//System.out.println(new MathCalculation("A==B OR C==C OR 1==2").result());
-			//System.out.println(new ExprCalc("2 <= 2").result());
-			//System.out.println(new ExprCalc("*").result());
-			//System.out.println(new ExprCalc("true OR !Err==Live OR !Err==Prod").result());
-	  //}
-	  //catch(AssertionError e)
-      //{
-      //    System.out.println("Assertion error. "+e.getMessage());
-     // }
+	Assert.assertSame(expc.result("-1").getClass(), Integer.class, "-1");
+	Assert.assertSame(expc.result("+1.1").getClass(), Double.class, "+1.1");
+	Assert.assertEquals(expc.result("*").getClass(), String.class, "*");
   }
   
   @Test
@@ -45,13 +36,13 @@ public class NewTest1 {
 	Assert.assertEquals(expc.result("1.0+2"),1.0+2);
 	Assert.assertEquals(expc.result("1>2"),1>2);
 	Assert.assertEquals(expc.result("100 "),100);
-
 	Assert.assertEquals(expc.result("(2 +2*5/11.0-6.0/3 > 1) OR (3>2) AND \"ABC 11\"==\"ABC 11\""), (2 +2*5/11.0-6.0/3 > 1) || (3>2) && "ABC 11"=="ABC 11");
 	Assert.assertEquals(expc.result("(1+(3-(5.0+2))*(4-2)/2)"),(1+(3-(5.0+2))*(4-2)/2));
 	Assert.assertEquals(expc.result("2 <= 2"), 2 <= 2);
-	Assert.assertEquals(expc.result("-1"), "-1");
+	Assert.assertEquals(expc.result("-1"), -1);
+	Assert.assertEquals(expc.result("+1.1"), 1.1);
+	Assert.assertEquals(expc.result("1==\"1\" OR 2==1"), true);
 	Assert.assertEquals(expc.result("*"), "*");
-	Assert.assertEquals(expc.result("true AND (!Err==Live OR !Err==Prod)"), true && ("!Err"=="Live" || "!Err"=="Prod"));
   }
 
   @Test
